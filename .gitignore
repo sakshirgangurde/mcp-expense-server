@@ -4,5 +4,6 @@ __pycache__/
 .env.local
 venv/
 .venv/
+data/expenses.db
 *.db
 *.sqlite3
