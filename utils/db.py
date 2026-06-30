@@ -24,5 +24,12 @@ def init_db():
         )
     """)
 
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS budget (
+            id INTEGER PRIMARY KEY,
+            monthly_budget REAL NOT NULL
+        )
+    """)
+
     conn.commit()
     conn.close()
