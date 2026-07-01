@@ -2,6 +2,7 @@ from mcp.server.fastmcp import FastMCP
 from utils.storage import add_expense, list_expenses, get_total_expenses, get_expenses_by_category, delete_expense, update_expense, set_budget, budget_status
 from utils.db import init_db
 from utils.export import export_expenses_to_excel
+from utils.pdf_report import generate_monthly_report
 
 mcp = FastMCP("Expense Tracker MCP")
 
@@ -59,6 +60,10 @@ def show_budget_status():
 @mcp.tool()
 def export_expenses():
     return export_expenses_to_excel()
+
+@mcp.tool()
+def export_monthly_report():
+    return generate_monthly_report()
 
 if __name__ == "__main__":
     init_db()

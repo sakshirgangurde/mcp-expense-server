@@ -47,7 +47,8 @@ def export_expenses_to_excel():
 
 
         return {
-            "message": "HELLO FROM MY MCP SERVER",
+            "status": "success",
+            "message": "Expenses exported successfully.",
             "file": file_path
         }
 
