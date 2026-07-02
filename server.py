@@ -3,6 +3,8 @@ from utils.storage import add_expense, list_expenses, get_total_expenses, get_ex
 from utils.db import init_db
 from utils.export import export_expenses_to_excel
 from utils.pdf_report import generate_monthly_report
+from utils.analytics import expense_analytics
+from utils.ocr import extract_text_from_receipt
 
 mcp = FastMCP("Expense Tracker MCP")
 
@@ -64,6 +66,17 @@ def export_expenses():
 @mcp.tool()
 def export_monthly_report():
     return generate_monthly_report()
+
+@mcp.tool()
+def analyze_expenses():
+    return expense_analytics()
+
+@mcp.tool()
+def scan_receipt(image_path: str):
+    """
+    Extract text from a receipt image.
+    """
+    return extract_text_from_receipt(image_path)
 
 if __name__ == "__main__":
     init_db()
